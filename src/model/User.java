@@ -9,14 +9,15 @@ public class User{
 	private int age;
 	private Category category;
 	private int categoryI;
+	private int counterS;
 	
 	
 	//Constructor method
-	public user(String nickname, String password, int age, Category category){
+	public User(String nickname, String password, int age){
 		this.nickname=nickname;
 		this.password=password;
 		this.age=age;
-		this.Category=Category.values()[categoryI-1];
+		category=Category.values()[0];
 	}
 	
 	public String getNickname(){
@@ -43,11 +44,15 @@ public class User{
 		return category;
 	}
 	
-	public void setCategory(Category categoryI){
+	public void setCategory(int counterS){
 		this.category=Category.values()[categoryI-1];
 	}
+
+	public void counterSong(){
+		counters=counterS++;
+	}
 	
-	public String getUser(){
+	public String getUserInfo(){
 		String info="**********USER**********\n";
 		info+="** NickName:  "+getNickname()+"\n";
 		info+="** Age:  "+getAge()+"\n";

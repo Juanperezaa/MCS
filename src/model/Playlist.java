@@ -34,45 +34,47 @@ public abstract class Playlist{
 			minutes+= seconds/60;
 			seconds= seconds%60;
 			
-			info="The playlist have a  "+minutes+":"+seconds+"  duration.";
+			info=minutes+":"+seconds;
 			return info
 	 }
-	 /*public boolean completeGenres(){
-		String genreList=new String[6];
-		 
-		 for(i=0;i<genreList.length;i++){
-			 if(genreList[i]=null){
-				 if(Variable!=genreList[i]){
-					 genreList[i]=Variable
-					 return true;
-				 }
-			 }
-			 else{
-				 if(Variable!=genreList[i]){
-					 genreList[i]=Variable
-					 return true;
-				     }
-				}
-			}
-		 }
-		 return false;
-	 }*/
 	 
-	/* public String getPLGenres(){
-		 String Variable="";
+	 public String getPlaylistGenre(){
 		 String info="";
-		 for(i=0;i<playlistSongs.length;i++){
-			 if(playlistSongs[i]=!null){
-			 Variable=playlistSongs[i].getGenre();
-			 if(completeGenres(Variable)){
-				 info+=Variable+", ";
-			 }
-				
+		 for(i=0;i<6;i++){
+			 if(matchGenre(i)){
+				 info+=playlistGenre.values()[i-1]+" ,";
 			 }
 		 }
 		 return info;
-	 ¨ 
-	 */
-	 public 
+	 }
+	 public boolean matchGenre(int genreI){
+		 for(i=0;i<playlistSongs.length;i++){
+			 if((playlistSongs[i]!=null)&&(genreI==playlistSongs[i].getGenreI())){
+				 return true;
+			 }
+		 }
+		 return false;
+	 }
+	 public boolean exist(Song song){
+		for(i=0;i<playlistSongs.length;i++){
+			if(song.getTitle().equalsIgnoreCase(playlistSongs[i].getTitle())){
+				return true;
+			}
+		}
+		return false;
+	 }
+	 public boolean addSong(Song song){
+		 if(!exist(song)){
+			 for(i=0;i<playlistSongs.length;i++){
+					if(playlistSongs[i]==null){
+						playlistSongs[i]=song;
+						return true;
+					}
+				}
+			}
+			return false;
+		 }
+	 
+	 public abstract getInfoPlaylist();
 	
 }

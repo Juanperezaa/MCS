@@ -7,7 +7,7 @@ public class Song{
 	private Genre genre;
 	private int genreI;
 	
-	public Song(String title, String artist, String date, SongLength lengthSong, Genre genre){
+	public Song(String title, String artist, String date, SongLength lengthSong, int genreI){
 		this.title=title;
 		this.artist=artist;
 		this.date=date;
@@ -38,9 +38,13 @@ public class Song{
 	public void setDate(String date){
 		this.date=date;
 	}
+	public  int getGenreI(){
+		return genreI;
+	}
 	
 	
 	public String getGenre(int genreI){
+		String genre;
 		genre=Genre.values()[genreI-1];
 		return genre;
 	}
@@ -51,5 +55,18 @@ public class Song{
 	
 	public int getSecondD(){
 		SongLength.getSeconds();
+	}
+	
+	public String getSongInfo(){
+		String info="";
+		info="**************  Song **************\n";
+		info+="**Title:  "+getTitle()"\n";
+		info+="**Artisti:  "+getArtist()"\n";
+		info+="**Duration:  "+getMinuteD()+":"+getSecondD()"\n";
+		info+="**Genre:  "+getGenre"\n";
+		info+="***********************************";
+		
+		return info;
+
 	}
 }
