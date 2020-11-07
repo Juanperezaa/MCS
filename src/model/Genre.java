@@ -1,4 +1,4 @@
 package model;
 public enum Genre{
-	 Rock, HipHop, MúsicaClásica, Reggae, Salsa, metal, Vacio;
+	 Rock, HipHop, MusicaClasica, Reggae, Salsa, metal, Vacio;
 }

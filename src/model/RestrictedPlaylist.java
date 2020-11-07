@@ -19,9 +19,9 @@ public class RestrictedPlaylist extends Playlist implements PlaylistUsers{
 	}
 	
 	 public boolean UserExist(User user){
-		for(i=0;i<playlistUser.length;i++){
+		for(int i=0;i<playlistUser.length;i++){
 			if(playlistUser[i]!=null){
-				if(user.getName().equalsIgnoreCase(playlistUser[i].getName())){
+				if(user.getNickname().equalsIgnoreCase(playlistUser[i].getNickname())){
 				return true;
 				}
 			}
@@ -29,11 +29,11 @@ public class RestrictedPlaylist extends Playlist implements PlaylistUsers{
 		}
 		return false;
 	 }
-	 public boolean addUser(User user){
-		 if(!exist(user)){
-			 for(i=0;i<playlistUser.length;i++){
+	 public boolean AddUser(User user){
+		 if(!(UserExist(user))){
+			 for(int i=0;i<playlistUser.length;i++){
 					if(playlistUser[i]==null){
-						playlistUser[i]=song;
+						playlistUser[i]=user;
 						return true;
 					}
 				}

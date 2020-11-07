@@ -17,18 +17,19 @@ public class User{
 		this.nickname=nickname;
 		this.password=password;
 		this.age=age;
-		category=Category.values()[0];
+		categoryI=1;
+		category=Category.values()[categoryI-1];
 	}
 	
 	public String getNickname(){
 		return nickname;
 	}
 	
-	public void setNickname(int nickname){
+	public void setNickname(String nickname){
 		this.nickname=nickname;
 	}
 	
-	public String password(){
+	public String getPassword(){
 		return password;
 	}
 	
@@ -47,16 +48,35 @@ public class User{
 	public void setCategory(int counterS){
 		this.category=Category.values()[categoryI-1];
 	}
+	
+	public void turnCategory(){
+		int lCategory=0;
+		if(counterS<3){
+			lCategory=1;
+		}
+		else if(counterS<10){
+			lCategory=2;
+		}
+		else if(counterS<30){
+			lCategory=3;
+		}
+		else{
+			lCategory=4;
+		}
+		setCategory(lCategory);
+	}
 
 	public void counterSong(){
-		counters=counterS++;
+		counterS=counterS++;
 	}
 	
 	public String getUserInfo(){
+		turnCategory();
 		String info="**********USER**********\n";
 		info+="** NickName:  "+getNickname()+"\n";
 		info+="** Age:  "+getAge()+"\n";
-		info+="** Category:  "+getCategory()"\n";
+		info+="** Category:  "+getCategory()+"\n";
 		info+="************************";
+		return info;
 	}
 }

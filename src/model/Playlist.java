@@ -25,7 +25,7 @@ public abstract class Playlist{
 		 int seconds=0;
 		 int temp=0;
 		 String info;
-		 for(i=0;i<playlistSongs.length;i++){
+		 for(int i=0;i<playlistSongs.length;i++){
 			 if(playlistSongs[i]!=null){
 				minutes+= playlistSongs[i].getMinutesD();
 				seconds+= playlistSongs[i].getSecondsD();
@@ -35,12 +35,12 @@ public abstract class Playlist{
 			seconds= seconds%60;
 			
 			info=minutes+":"+seconds;
-			return info
+			return info;
 	 }
 	 
 	 public String getPlaylistGenre(){
 		 String info="";
-		 for(i=0;i<6;i++){
+		 for(int i=0;i<6;i++){
 			 if(matchGenre(i)){
 				 info+=playlistGenre.values()[i-1]+" ,";
 			 }
@@ -48,7 +48,7 @@ public abstract class Playlist{
 		 return info;
 	 }
 	 public boolean matchGenre(int genreI){
-		 for(i=0;i<playlistSongs.length;i++){
+		 for(int i=0;i<playlistSongs.length;i++){
 			 if((playlistSongs[i]!=null)&&(genreI==playlistSongs[i].getGenreI())){
 				 return true;
 			 }
@@ -56,7 +56,7 @@ public abstract class Playlist{
 		 return false;
 	 }
 	 public boolean exist(Song song){
-		for(i=0;i<playlistSongs.length;i++){
+		for(int i=0;i<playlistSongs.length;i++){
 			if(song.getTitle().equalsIgnoreCase(playlistSongs[i].getTitle())){
 				return true;
 			}
@@ -65,7 +65,7 @@ public abstract class Playlist{
 	 }
 	 public boolean addSong(Song song){
 		 if(!exist(song)){
-			 for(i=0;i<playlistSongs.length;i++){
+			 for(int i=0;i<playlistSongs.length;i++){
 					if(playlistSongs[i]==null){
 						playlistSongs[i]=song;
 						return true;
@@ -75,6 +75,6 @@ public abstract class Playlist{
 			return false;
 		 }
 	 
-	 public abstract getInfoPlaylist();
+	 public abstract String getInfoPlaylist();
 	
 }
